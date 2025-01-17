@@ -1,15 +1,4 @@
-const downloadFile=(filename,delay,isRejected=false)=>{
-   return new Promise((resolve,reject)=>{
-     setTimeout(()=>{
-        if(isRejected)
-        {
-            reject(`${filename}, something went wrong`)
-        }else{
-            resolve(`${filename}, downloaded successfully`)
-        }
-     },delay)
-   })
-}
+const downloadFile = require('./downloadFileModule');
 
 const file = [
     downloadFile('file_1.pdf',3004,),

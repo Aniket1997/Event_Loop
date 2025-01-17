@@ -1,14 +1,4 @@
-const downloadFile = (filename, delay, isRejected = false) =>
-    new Promise((resolve, reject) => {
-        setTimeout(() => {
-            if (isRejected) {
-                reject(`${filename}, something went wrong`);
-            } else {
-                resolve(`${filename} downloaded`);
-            }
-        }, delay);
-    });
-
+const downloadFile = require('./downloadFileModule');
 const files = [
     downloadFile("File1", 1000, true), // May reject
     downloadFile("File2", 2000),       // Resolves

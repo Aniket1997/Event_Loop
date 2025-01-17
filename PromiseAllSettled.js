@@ -1,20 +1,9 @@
-const downloadFiles = (fileName,delay,isRejected=true)=>{
-    return new Promise((resolve,reject)=>{
-        setTimeout(()=>{
-            if(isRejected)
-            {
-                resolve(`${fileName}, Downloaded`)
-            }else{
-                reject(`${fileName}, something went wrong`)
-            }
-        },delay)
-    })
-}
+const downloadFile = require('./downloadFileModule');
 
 const files = [
-    downloadFiles('file_1.pdf',2000),
-    downloadFiles('file_2.pdf',1000,false),
-    downloadFiles('file_3.pdf',3000,false),
+    downloadFile('file_1.pdf',2000),
+    downloadFile('file_2.pdf',1000,false),
+    downloadFile('file_3.pdf',3000,false),
 ]
 
 Promise.allSettled(files).then((res)=>console.log(res)).catch((err)=>console.log(err));
